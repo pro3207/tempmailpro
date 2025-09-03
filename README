@@ -1,0 +1,31 @@
+# TempMailPro — Quick Deploy & SEO / AdSense Checklist
+
+## Quick deploy (GitHub Pages)
+1. Create new GitHub repo (name e.g. `TempmailPro`).
+2. Add these files to repo (index.html, blog.html, privacy.html, terms.html, about.html, contact.html, robots.txt, sitemap.xml).
+3. In repo Settings -> Pages -> Source -> select `main` branch and `/ (root)` -> Save.
+4. Wait ~5 minutes, then visit `https://<your-github-username>.github.io/<repo-name>/`.
+
+## Recommended (production)
+- Deploy a tiny backend (Node/Express) on Render / Railway / Fly.io to proxy mail.tm calls (avoids CORS and is more reliable).
+- Use HTTPS domain (free: Cloudflare/Let’s Encrypt).
+- Use real contact email (support@yourdomain.com) and a site logo.
+
+## AdSense checklist (for approval)
+- Have Working Privacy Policy and Terms pages (done).
+- Have a Contact page with valid email (edit contact.html).
+- Add real content in Blog (3+ original posts, 600+ words each recommended).
+- Site must be accessible and not blocked by robots.txt.
+- Don’t place AdSense code until approved.
+
+## SEO tips
+- Add unique long-form blog posts around keywords: "temp mail", "disposable email", "avoid spam".
+- Add images with descriptive `alt` attributes.
+- Use descriptive titles and meta descriptions per page.
+- Submit sitemap.xml to Google Search Console.
+- Build backlinks: list site on directories, write guest posts.
+
+## Proxy / CORS notes
+- For stable inbox features, deploy backend proxy:
+  - Example: a simple Express server that forwards /domains, /accounts, /token, /messages, /messages/:id and attaches Authorization header for message fetching.
+- If you can't deploy backend now, the frontend includes fallback notes using AllOrigins but this is not 100% reliable.
