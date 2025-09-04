@@ -1,351 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TempMailPro — Free Disposable Email | Protect Your Inbox</title>
-  <meta name="description" content="TempMailPro - Free disposable email service. Create a temporary inbox instantly to avoid spam, protect your privacy and sign up safely.">
-  <meta name="keywords" content="temp mail, disposable email, free temp email, temporary inbox, avoid spam, privacy email">
-  <meta name="author" content="TempMailPro">
-  <!-- Open Graph -->
-  <meta property="og:title" content="TempMailPro — Free Disposable Email"/>
-  <meta property="og:description" content="Create a temporary email address instantly to protect your primary inbox."/>
-  <meta property="og:type" content="website"/>
-  <!-- Structured Data (Organization) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TempMailPro",
-    "url": "https://yourdomain.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://yourdomain.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Tailwind CSS CDN for quick professional styling -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TempMailPro - Free Disposable Email Service</title>
+  <meta name="description" content="Generate free temporary email instantly with TempMailPro. Protect your privacy, avoid spam, and use disposable email addresses online.">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- favicon placeholder -->
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- small custom styles -->
   <style>
-    body { background: linear-gradient(180deg,#0b1220 0%, #071227 100%); }
-    .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.03); }
-    .btn { transition: transform .12s ease; }
-    .btn:active{ transform: translateY(1px); }
-    /* small responsive iframe reset for message viewer */
-    .message-frame { min-height: 280px; border: none; width:100%; background: #fff; }
+    body {
+      background: linear-gradient(to right, #4f46e5, #3b82f6);
+      min-height: 100vh;
+    }
+    .btn-main {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: 0.3s ease-in-out;
+    }
+    .btn-main:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    }
+    .navbar {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+    }
   </style>
 </head>
-<body class="antialiased text-gray-100">
+<body class="text-gray-900">
 
-  <!-- Header -->
-  <header class="py-4 border-b border-indigo-900">
-    <div class="container mx-auto px-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded bg-indigo-500 flex items-center justify-center font-bold">TM</div>
-        <div>
-          <h1 class="text-xl font-semibold">TempMailPro</h1>
-          <p class="text-xs text-indigo-200">Instant disposable email — protect your privacy</p>
-        </div>
-      </div>
-      <nav class="space-x-4 text-sm">
+  <!-- 🔝 Navigation -->
+  <header class="navbar text-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">TempMailPro</h1>
+      <nav class="space-x-6">
         <a href="index.html" class="hover:underline">Home</a>
         <a href="blog.html" class="hover:underline">Blog</a>
-        <a href="about.html" class="hover:underline">About</a>
-        <a href="contact.html" class="hover:underline">Contact</a>
-        <a href="privacy.html" class="hover:underline">Privacy</a>
+        <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+        <a href="terms.html" class="hover:underline">Terms</a>
+        <a href="help.html" class="hover:underline">Help</a>
       </nav>
     </div>
   </header>
 
-  <!-- Main -->
-  <main class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- 📩 Main Section -->
+  <main class="container mx-auto text-center py-16 px-4">
+    <h2 class="text-4xl font-bold text-white mb-6">Get Your Free Temporary Email</h2>
+    <p class="text-lg text-gray-200 mb-8">Protect your personal inbox from spam & stay anonymous online.</p>
 
-      <!-- Left column: Generate -->
-      <section class="glass p-6 rounded-lg shadow-lg lg:col-span-1">
-        <h2 class="text-lg font-semibold mb-2">Get a Temporary Email</h2>
-        <p class="text-sm text-indigo-200 mb-4">Generate a disposable email and receive messages instantly. Use for signups, trials, or testing.</p>
+    <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto">
+      <p class="text-lg font-semibold text-gray-800 mb-4">Your Temporary Email:</p>
+      <div id="emailBox" class="text-xl font-bold bg-gray-100 p-3 rounded-lg border border-gray-300 mb-4">Click Generate</div>
+      <button onclick="generateEmail()" class="btn-main">✨ Generate New Email</button>
+    </div>
 
-        <div class="space-y-3">
-          <div class="flex gap-2">
-            <input id="emailInp" class="flex-1 p-3 rounded bg-transparent border border-indigo-800 text-white" readonly placeholder="Click Generate">
-            <button id="copyBtn" class="btn bg-indigo-600 px-4 py-2 rounded text-white">Copy</button>
-          </div>
+    <!-- 📩 Inbox -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto mt-8">
+      <h3 class="text-xl font-bold mb-3">Inbox</h3>
+      <ul id="inbox" class="text-left space-y-3 text-gray-700">
+        <li>No emails yet.</li>
+      </ul>
+    </div>
 
-          <button id="genBtn" class="btn w-full bg-emerald-500 text-black font-semibold px-4 py-2 rounded">Generate New Email</button>
-
-          <div class="flex items-center justify-between text-xs text-indigo-200">
-            <div>Auto-refresh</div>
-            <label class="flex items-center gap-2"><input id="autoPoll" type="checkbox" checked> Enabled</label>
-          </div>
-
-          <div id="status" class="text-xs text-indigo-300">No inbox yet.</div>
-        </div>
-
-        <hr class="my-4 border-indigo-900"/>
-
-        <div class="text-xs text-indigo-300">
-          <strong>Important:</strong> For production reliability, we recommend deploying a small backend proxy (Express) — details in README.
-        </div>
-      </section>
-
-      <!-- Middle column: Inbox list -->
-      <section class="glass p-6 rounded-lg shadow-lg lg:col-span-2">
-        <div class="flex items-start justify-between mb-4">
-          <h2 class="text-lg font-semibold">Inbox</h2>
-          <div class="flex items-center gap-2">
-            <button id="refreshBtn" class="btn px-3 py-1 rounded bg-indigo-700 text-sm">Refresh</button>
-            <button id="delAcct" class="btn px-3 py-1 rounded bg-red-600 text-sm">Delete Account</button>
-          </div>
-        </div>
-
-        <div id="inboxContainer" class="space-y-3">
-          <div id="emptyMsg" class="text-sm text-indigo-200">No messages yet. Generate an email to start receiving.</div>
-          <ul id="inboxList" class="space-y-2"></ul>
-        </div>
-
-        <hr class="my-4 border-indigo-900"/>
-
-        <div>
-          <h3 class="font-semibold mb-2">Message Preview</h3>
-          <div id="msgMeta" class="text-xs text-indigo-200 mb-2">Select a message to view details</div>
-          <iframe id="msgFrame" class="message-frame rounded"></iframe>
-          <pre id="msgText" class="hidden p-3 rounded bg-indigo-900 text-xs"></pre>
-        </div>
-      </section>
-
-      <!-- Right column: Ads / Info -->
-      <aside class="lg:col-span-1">
-        <div class="glass p-4 rounded shadow mb-4">
-          <!-- Ad slot - replace with AdSense code later -->
-          <div class="bg-indigo-900 text-center p-4 rounded">
-            <div class="text-sm text-indigo-200">Ad Slot (300x250)</div>
-            <div class="mt-3 text-xs text-indigo-300">Paste AdSense code here once approved.</div>
-          </div>
-        </div>
-
-        <div class="glass p-4 rounded shadow">
-          <h4 class="font-semibold">Why use TempMailPro?</h4>
-          <ul class="mt-2 text-sm text-indigo-200 list-disc pl-4 space-y-1">
-            <li>Protect your primary inbox from spam</li>
-            <li>Sign up fast without revealing personal email</li>
-            <li>Simple UI, mobile-friendly</li>
-          </ul>
-        </div>
-      </aside>
+    <!-- 📢 Ad Slot -->
+    <div class="mt-10 bg-white rounded-xl p-4 shadow-md text-gray-600 text-center">
+      <p>🔸 Your AdSense Ad Will Appear Here</p>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-indigo-900 py-6 mt-8">
-    <div class="container mx-auto px-4 text-center text-sm text-indigo-300">
-      <p>© <span id="year"></span> TempMailPro — Disposable Email Service. <a href="privacy.html" class="underline">Privacy</a> · <a href="terms.html" class="underline">Terms</a></p>
+  <!-- 🔻 Footer -->
+  <footer class="bg-gray-900 text-white py-6 mt-12">
+    <div class="container mx-auto text-center text-sm">
+      <p>© 2025 TempMailPro. All Rights Reserved.</p>
     </div>
   </footer>
 
-<!-- Scripts -->
-<script>
-  // Basic front-end-only integration (PROXY approach)
-  // NOTE: mail.tm sometimes blocks direct browser calls (CORS).
-  // Options:
-  // 1) Quick (frontend-only): use "AllOrigins" proxy included below (free but rate-limited).
-  // 2) Recommended: deploy a tiny backend proxy (see README.md) and set PROXY_BASE to your backend URL.
-  //
-  // To use AllOrigins (client-side), we call: fetch(PROXY + encodeURIComponent(API_URL))
-  // PROXY examples:
-  //  - const PROXY = 'https://api.allorigins.win/raw?url=';
-  //  - const PROXY = 'https://thingproxy.freeboard.io/fetch/'; (sometimes works)
-  // Or set PROXY = '' if your server handles CORS.
-
-  const API_BASE = "https://api.mail.tm";
-  const PROXY = "https://api.allorigins.win/raw?url="; // frontend-only quick option
-  // const PROXY = ""; // if you have backend proxy, set it here
-
-  // state
-  let state = { address: null, token: null, id: null, pollId: null };
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // helper for proxied GET
-  async function proxiedGet(url) {
-    const full = (PROXY ? PROXY + encodeURIComponent(url) : url);
-    const r = await fetch(full);
-    if (!r.ok) throw new Error('Network error');
-    return r.json();
-  }
-
-  // helper for proxied POST (if using PROXY, we must use a CORS-friendly proxy; AllOrigins only supports GET)
-  // For POST calls you should use a real backend proxy. We'll attempt direct POST (may be blocked).
-  async function directPost(url, body) {
-    const r = await fetch(url, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
-    return r.json();
-  }
-
-  // Create mailbox (best via backend). We'll try domain fetch via proxied GET, create account via direct POST.
-  async function generateEmail() {
-    setStatus('Creating inbox...');
-    try {
-      const doms = await proxiedGet(API_BASE + '/domains');
-      const list = doms['hydra:member'] || doms;
-      const domain = (list && list.length) ? list[0].domain : 'mail.tm';
-      const local = Math.random().toString(36).slice(2,9);
-      const address = `${local}@${domain}`;
-      const password = local + Math.floor(Math.random()*9000+1000);
-
-      // create account (direct POST) - may be blocked by CORS in browser
-      try {
-        await directPost(API_BASE + '/accounts', { address, password });
-      } catch(e) {
-        console.warn('Direct account create may be blocked in browser. Use backend proxy for reliability.');
+  <script>
+    function generateEmail() {
+      const chars = "abcdefghijklmnopqrstuvwxyz1234567890";
+      let email = "";
+      for (let i = 0; i < 8; i++) {
+        email += chars[Math.floor(Math.random() * chars.length)];
       }
+      email += "@tempmailpro.com";
+      document.getElementById("emailBox").innerText = email;
 
-      // get token (direct POST)
-      let tokenData;
-      try {
-        tokenData = await directPost(API_BASE + '/token', { address, password });
-      } catch(e) {
-        console.warn('Direct token fetch blocked; if so, deploy backend proxy.');
-        setStatus('Could not create account from browser due to CORS. Use backend (README explains).');
-        // Still set address display so user can try
-        state.address = address;
-        document.getElementById('emailInp').value = address;
-        return;
-      }
-
-      state.address = address;
-      state.token = tokenData.token;
-      // fetch account info (/me) to get id (direct GET with Bearer)
-      try {
-        const me = await fetch(API_BASE + '/me', {headers: { Authorization: 'Bearer ' + state.token }}).then(r=>r.json());
-        state.id = me.id;
-      } catch(e) { console.warn('Fetching /me failed'); }
-
-      document.getElementById('emailInp').value = address;
-      setStatus('Inbox ready. Auto-refreshing.');
-      refreshInbox();
-      startAutoPoll();
-    } catch (err) {
-      console.error(err);
-      setStatus('Failed to create inbox. See README for backend instructions.');
+      // Inbox reset
+      document.getElementById("inbox").innerHTML = "<li>Waiting for emails...</li>";
     }
-  }
-
-  function setStatus(text) { document.getElementById('status').textContent = text; }
-
-  async function refreshInbox() {
-    if (!state.token) { setStatus('Generate an email first'); return; }
-    try {
-      // messages
-      // BEST: call backend /messages endpoint that forwards Authorization header.
-      // Here we attempt direct GET to messages — this may be blocked by CORS.
-      const url = API_BASE + '/messages';
-      const res = await fetch(url, { headers: { Authorization: 'Bearer ' + state.token }});
-      if (!res.ok) {
-        setStatus('Could not fetch messages from browser. Use backend for reliability.');
-        return;
-      }
-      const data = await res.json();
-      const rows = data['hydra:member'] || [];
-      const list = document.getElementById('inboxList');
-      list.innerHTML = '';
-      if (!rows.length) {
-        document.getElementById('emptyMsg').style.display = 'block';
-      } else {
-        document.getElementById('emptyMsg').style.display = 'none';
-      }
-      rows.forEach(m => {
-        const li = document.createElement('li');
-        li.className = 'p-3 bg-indigo-900 rounded flex justify-between items-start';
-        li.innerHTML = `<div><div class="text-sm font-medium">${escapeHtml(m.from?.address||'')}</div>
-                        <div class="text-xs text-indigo-200">${escapeHtml(m.subject||'(no subject)')}</div></div>
-                        <div class="text-xs text-indigo-300">${new Date(m.createdAt).toLocaleTimeString()}</div>`;
-        li.onclick = ()=> openMessage(m.id);
-        list.appendChild(li);
-      });
-      setStatus('Inbox updated');
-    } catch (e) {
-      console.error(e);
-      setStatus('Error refreshing inbox. Check README for proxy instructions.');
-    }
-  }
-
-  async function openMessage(id) {
-    if (!state.token) return;
-    try {
-      const res = await fetch(API_BASE + '/messages/' + id, { headers: { Authorization: 'Bearer ' + state.token }});
-      if (!res.ok) { setStatus('Could not open message in browser. Use backend.'); return; }
-      const m = await res.json();
-      document.getElementById('msgMeta').textContent = `${m.from?.address||''} → ${state.address} • ${new Date(m.createdAt).toLocaleString()}`;
-      if (m.html && m.html.length) {
-        const frame = document.getElementById('msgFrame');
-        const doc = frame.contentDocument || frame.contentWindow.document;
-        doc.open(); doc.write(m.html[0]); doc.close();
-        document.getElementById('msgText').classList.add('hidden');
-        frame.classList.remove('hidden');
-      } else {
-        document.getElementById('msgText').textContent = m.text || '(no body)';
-        document.getElementById('msgText').classList.remove('hidden');
-        document.getElementById('msgFrame').classList.add('hidden');
-      }
-    } catch(e) {
-      console.error(e);
-      setStatus('Failed to open message.');
-    }
-  }
-
-  function escapeHtml(s) { if(!s) return ''; return s.replace(/[&<>"']/g, (c)=> ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c])); }
-
-  // account delete (if token available)
-  async function deleteAccount() {
-    if (!state.id || !state.token) return alert('No account to delete or missing token.');
-    try {
-      const res = await fetch(API_BASE + '/accounts/' + state.id, { method:'DELETE', headers: { Authorization: 'Bearer ' + state.token }});
-      if (res.ok) {
-        state = { address:null, token:null, id:null };
-        document.getElementById('emailInp').value = '';
-        document.getElementById('inboxList').innerHTML = '';
-        setStatus('Account deleted.');
-      } else {
-        setStatus('Could not delete account from browser.');
-      }
-    } catch(e) {
-      console.error(e);
-      setStatus('Error deleting account.');
-    }
-  }
-
-  // copy
-  document.getElementById('copyBtn').onclick = ()=> {
-    const val = document.getElementById('emailInp').value;
-    if (!val) return;
-    navigator.clipboard.writeText(val).then(()=> alert('Copied: ' + val));
-  };
-
-  document.getElementById('genBtn').onclick = generateEmail;
-  document.getElementById('refreshBtn').onclick = refreshInbox;
-  document.getElementById('delAcct').onclick = deleteAccount;
-
-  // auto poll
-  function startAutoPoll(){
-    stopAutoPoll();
-    if (document.getElementById('autoPoll').checked){
-      state.pollId = setInterval(refreshInbox, 8000);
-    }
-  }
-  function stopAutoPoll(){ if (state.pollId) clearInterval(state.pollId); state.pollId = null; }
-  document.getElementById('autoPoll').addEventListener('change', startAutoPoll);
-
-  // short README hint when page loads
-  (function init(){
-    // display small hint in console about backend recommendation
-    console.log('TempMailPro loaded. For stable production use, deploy the tiny backend proxy (see README).');
-  })();
-</script>
+  </script>
 </body>
 </html>
