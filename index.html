@@ -30,31 +30,27 @@
       transform: scale(1.07);
       background: linear-gradient(90deg, #dd2476, #ff512f);
     }
-    .navbar {
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-    }
   </style>
 </head>
 <body class="text-white">
 
-  <!-- 🔝 Navbar -->
-  <header class="navbar fixed w-full top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-extrabold tracking-wide">TempMailPro</h1>
-      <nav class="space-x-6">
-        <a href="index.html" class="hover:text-yellow-300">Home</a>
-        <a href="blog.html" class="hover:text-yellow-300">Blog</a>
-        <a href="privacy.html" class="hover:text-yellow-300">Privacy</a>
-        <a href="terms.html" class="hover:text-yellow-300">Terms</a>
-        <a href="help.html" class="hover:text-yellow-300">Help</a>
-      </nav>
-    </div>
+  <!-- 🔝 Site Title -->
+  <header class="text-center pt-6">
+    <h1 class="text-3xl font-extrabold tracking-wide">TempMailPro</h1>
   </header>
 
+  <!-- 📌 Navigation (Vertical Links) -->
+  <nav class="glass max-w-xs mx-auto mt-6 p-4 text-center space-y-3">
+    <a href="index.html" class="block hover:text-yellow-300">🏠 Home</a>
+    <a href="blog.html" class="block hover:text-yellow-300">📰 Blog</a>
+    <a href="privacy.html" class="block hover:text-yellow-300">🔒 Privacy Policy</a>
+    <a href="terms.html" class="block hover:text-yellow-300">📜 Terms & Conditions</a>
+    <a href="help.html" class="block hover:text-yellow-300">❓ Help</a>
+  </nav>
+
   <!-- 🦸 Hero Section -->
-  <section class="text-center pt-28 pb-12">
-    <h2 class="text-5xl font-bold mb-4">Get Your Free Temporary Email</h2>
+  <section class="text-center pt-10 pb-6 px-4">
+    <h2 class="text-4xl font-bold mb-3">Get Your Free Temporary Email</h2>
     <p class="text-lg text-gray-200">Stay private. Avoid spam. Protect your real inbox with TempMailPro.</p>
   </section>
 
@@ -84,11 +80,6 @@
   <footer class="bg-black bg-opacity-60 text-gray-300 py-6 mt-12">
     <div class="container mx-auto text-center text-sm">
       <p>© 2025 TempMailPro. All Rights Reserved.</p>
-      <div class="mt-2 space-x-4">
-        <a href="privacy.html" class="hover:underline">Privacy</a>
-        <a href="terms.html" class="hover:underline">Terms</a>
-        <a href="help.html" class="hover:underline">Help</a>
-      </div>
     </div>
   </footer>
 
