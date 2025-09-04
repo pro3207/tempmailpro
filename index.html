@@ -3,64 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TempMail - Free Disposable Email</title>
-  <meta name="description" content="Get a free temporary email instantly. Protect your privacy and avoid spam with TempMail.">
-
-  <!-- 🔹 Google AdSense Auto Ads (sirf ek baar lagana hai) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
-     crossorigin="anonymous"></script>
+  <title>TempMail Pro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    main {
+      padding: 40px 20px;
+    }
+    .email-box {
+      background: white;
+      border: 2px solid #4a90e2;
+      border-radius: 8px;
+      display: inline-block;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 18px;
+      min-width: 280px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #357ab8;
+    }
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; background:#f9f9f9; margin:0; padding:0;">
+<body>
 
-  <!-- 🔹 Header -->
-  <header style="background:#007bff; color:#fff; padding:15px; text-align:center;">
-    <h1>TempMail Service</h1>
-    <p>Get Free Disposable Email Instantly</p>
-  </header>
+  <header>TempMail Pro</header>
 
-  <!-- 🔹 Display Ad (Top Banner) -->
-  <div style="text-align:center; margin:15px 0;">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-XXXXXXXXXX"
-         data-ad-slot="1234567890"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <!-- 🔹 Main Content -->
-  <main style="padding:20px; max-width:800px; margin:auto; background:#fff; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
-    <h2>Your Temporary Email</h2>
-    <p style="background:#eee; padding:10px; border-radius:5px; text-align:center;">
-      xyz123@tempmail.com 
-      <button style="background:#007bff; color:#fff; border:none; padding:5px 10px; margin-left:10px; cursor:pointer;">Copy</button>
-    </p>
-
-    <h3>Inbox</h3>
-    <div style="background:#fafafa; border:1px solid #ddd; padding:10px; border-radius:5px; text-align:center;">
-      📩 No new messages
-    </div>
+  <main>
+    <h2>Temporary Email Address</h2>
+    <div class="email-box" id="emailBox">Loading...</div>
+    <br>
+    <button onclick="generateEmail()">Generate Email</button>
+    <button onclick="copyEmail()">Copy</button>
   </main>
 
-  <!-- 🔹 Display Ad (Between Content) -->
-  <div style="text-align:center; margin:20px 0;">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-XXXXXXXXXX"
-         data-ad-slot="0987654321"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <!-- 🔹 Footer -->
-  <footer style="background:#222; color:#fff; text-align:center; padding:15px; margin-top:20px;">
-    <p>&copy; 2025 TempMail | 
-      <a href="privacy.html" style="color:#fff;">Privacy Policy</a> | 
-      <a href="terms.html" style="color:#fff;">Terms & Conditions</a>
-    </p>
+  <footer>
+    <a href="#">Blog</a> | 
+    <a href="#">About</a> | 
+    <a href="#">Privacy Policy</a> | 
+    <a href="#">Terms & Conditions</a>
   </footer>
+
+  <script>
+    let email = "";
+
+    function generateEmail() {
+      const domains = ["@tempmail.com", "@mailpro.net", "@inboxnow.org"];
+      const randomString = Math.random().toString(36).substring(2, 10);
+      const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+      email = randomString + randomDomain;
+      document.getElementById("emailBox").textContent = email;
+    }
+
+    function copyEmail() {
+      if(email){
+        navigator.clipboard.writeText(email);
+        alert("Copied: " + email);
+      } else {
+        alert("Please generate an email first!");
+      }
+    }
+  </script>
 
 </body>
 </html>
