@@ -3,78 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TempMailPro - Free Disposable Email Service</title>
+  <title>TempMailPro - Free Disposable Email</title>
   <meta name="description" content="Generate free temporary email instantly with TempMailPro. Protect your privacy, avoid spam, and use disposable email addresses online.">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(to right, #4f46e5, #3b82f6);
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
       min-height: 100vh;
     }
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
     .btn-main {
-      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      background: linear-gradient(90deg, #ff512f, #dd2476);
       color: white;
       font-weight: bold;
-      padding: 12px 24px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: 0.3s ease-in-out;
+      padding: 14px 32px;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s ease-in-out;
     }
     .btn-main:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      transform: scale(1.07);
+      background: linear-gradient(90deg, #dd2476, #ff512f);
     }
     .navbar {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
     }
   </style>
 </head>
-<body class="text-gray-900">
+<body class="text-white">
 
-  <!-- 🔝 Navigation -->
-  <header class="navbar text-white shadow-md">
+  <!-- 🔝 Navbar -->
+  <header class="navbar fixed w-full top-0 z-50">
     <div class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold">TempMailPro</h1>
+      <h1 class="text-2xl font-extrabold tracking-wide">TempMailPro</h1>
       <nav class="space-x-6">
-        <a href="index.html" class="hover:underline">Home</a>
-        <a href="blog.html" class="hover:underline">Blog</a>
-        <a href="privacy.html" class="hover:underline">Privacy Policy</a>
-        <a href="terms.html" class="hover:underline">Terms</a>
-        <a href="help.html" class="hover:underline">Help</a>
+        <a href="index.html" class="hover:text-yellow-300">Home</a>
+        <a href="blog.html" class="hover:text-yellow-300">Blog</a>
+        <a href="privacy.html" class="hover:text-yellow-300">Privacy</a>
+        <a href="terms.html" class="hover:text-yellow-300">Terms</a>
+        <a href="help.html" class="hover:text-yellow-300">Help</a>
       </nav>
     </div>
   </header>
 
-  <!-- 📩 Main Section -->
-  <main class="container mx-auto text-center py-16 px-4">
-    <h2 class="text-4xl font-bold text-white mb-6">Get Your Free Temporary Email</h2>
-    <p class="text-lg text-gray-200 mb-8">Protect your personal inbox from spam & stay anonymous online.</p>
+  <!-- 🦸 Hero Section -->
+  <section class="text-center pt-28 pb-12">
+    <h2 class="text-5xl font-bold mb-4">Get Your Free Temporary Email</h2>
+    <p class="text-lg text-gray-200">Stay private. Avoid spam. Protect your real inbox with TempMailPro.</p>
+  </section>
 
-    <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto">
-      <p class="text-lg font-semibold text-gray-800 mb-4">Your Temporary Email:</p>
-      <div id="emailBox" class="text-xl font-bold bg-gray-100 p-3 rounded-lg border border-gray-300 mb-4">Click Generate</div>
-      <button onclick="generateEmail()" class="btn-main">✨ Generate New Email</button>
+  <!-- 📩 Email Generator -->
+  <main class="container mx-auto px-4">
+    <div class="glass p-8 text-center max-w-xl mx-auto">
+      <p class="text-lg font-semibold mb-3">Your Temporary Email:</p>
+      <div id="emailBox" class="text-2xl font-bold bg-white text-gray-800 py-3 rounded-lg mb-5">Click Generate</div>
+      <button onclick="generateEmail()" class="btn-main animate-pulse">✨ Generate New Email</button>
     </div>
 
-    <!-- 📩 Inbox -->
-    <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto mt-8">
-      <h3 class="text-xl font-bold mb-3">Inbox</h3>
-      <ul id="inbox" class="text-left space-y-3 text-gray-700">
+    <!-- 📬 Inbox Section -->
+    <div class="glass p-6 mt-10 max-w-xl mx-auto">
+      <h3 class="text-2xl font-bold mb-3">📬 Inbox</h3>
+      <ul id="inbox" class="text-left text-gray-100 space-y-3">
         <li>No emails yet.</li>
       </ul>
     </div>
 
     <!-- 📢 Ad Slot -->
-    <div class="mt-10 bg-white rounded-xl p-4 shadow-md text-gray-600 text-center">
+    <div class="glass mt-10 max-w-xl mx-auto text-gray-200 text-center p-4">
       <p>🔸 Your AdSense Ad Will Appear Here</p>
     </div>
   </main>
 
   <!-- 🔻 Footer -->
-  <footer class="bg-gray-900 text-white py-6 mt-12">
+  <footer class="bg-black bg-opacity-60 text-gray-300 py-6 mt-12">
     <div class="container mx-auto text-center text-sm">
       <p>© 2025 TempMailPro. All Rights Reserved.</p>
+      <div class="mt-2 space-x-4">
+        <a href="privacy.html" class="hover:underline">Privacy</a>
+        <a href="terms.html" class="hover:underline">Terms</a>
+        <a href="help.html" class="hover:underline">Help</a>
+      </div>
     </div>
   </footer>
 
@@ -88,7 +102,6 @@
       email += "@tempmailpro.com";
       document.getElementById("emailBox").innerText = email;
 
-      // Inbox reset
       document.getElementById("inbox").innerHTML = "<li>Waiting for emails...</li>";
     }
   </script>
